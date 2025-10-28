@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Core\Text;
+namespace Utils;
 
-final class Slug
+final class Slugger
 {
     private const DEFAULT_FALLBACK = 'item';
 
@@ -47,6 +47,9 @@ final class Slug
         return strtr($value, self::fallbackTable());
     }
 
+    /**
+     * @return array<string,string>
+     */
     private static function fallbackTable(): array
     {
         return [
