@@ -50,3 +50,49 @@ $router->get(
 $match = $router->match('GET', '/admin/posts/hello-world');
 $url = $router->generate('post.detail', ['slug' => 'hello-world']);
 ```
+
+### Překlady
+
+`Core\Translation\Translator` poskytuje jednoduchou práci s překlady ve stylu
+WordPressu. Překladové soubory jsou klasické PHP soubory vracející asociativní
+pole klíč => hodnota a nachází se ve složce `inc/languages`. V základu se tak
+očekávají soubory pojmenované podle locale, například `EN.php`, `CS.php`,
+`PL.php`.
+
+```php
+use Core\Translation\Translator;
+
+$translator = new Translator(defaultLocale: 'CS');
+$translator->setFallbackLocale('EN');
+
+echo $translator->translate('greeting');
+echo $translator->translate('greeting.named', ['name' => 'Eva']);
+
+// Globální helpery fungující obdobně jako ve WordPressu
+Translator::setGlobal($translator);
+echo __('greeting');
+_e('greeting.named', ['name' => 'Karel']);
+```
+
+### CSRF tokeny
+
+`Core\Security\CsrfTokenManager` řeší generování a validaci CSRF tokenů nad
+session. Token lze vygenerovat pro libovolný formulářový identifikátor a při
+úspěšné validaci je (volitelně) zneplatněn. Tokeny lze snadno vkládat do
+formulářů pomocí helperu `Core\Utils\Forms::csrfField()`.
+
+```php
+use Core\Security\CsrfTokenManager;
+use Core\Utils\Forms;
+
+$csrf = new CsrfTokenManager();
+$token = $csrf->getToken('contact-form');
+
+echo Forms::csrfField($token);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!$csrf->validateToken($_POST['_token'] ?? '', 'contact-form')) {
+        throw new RuntimeException('Neplatný CSRF token');
+    }
+}
+```
