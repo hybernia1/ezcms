@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Core\Files;
 
+use Utils\DateTimeFormatter;
 use Utils\Slugger;
 
 /**
@@ -28,8 +29,8 @@ final class PathResolver
      */
     public function yearMonthPath(?\DateTimeInterface $when = null): string
     {
-        $dt = $when ?? new \DateTimeImmutable('now');
-        return sprintf('%s/%s/%s', $this->baseDir(), $dt->format('Y'), $dt->format('m'));
+        $dt = $when ?? DateTimeFormatter::now();
+        return sprintf('%s/%s', $this->baseDir(), DateTimeFormatter::formatYearMonth($dt));
     }
 
     /**
