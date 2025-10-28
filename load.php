@@ -68,3 +68,5 @@ spl_autoload_register(
     prepend: true
 );
 
+require_once __DIR__ . '/inc/Class/Core/Translation/functions.php';
+

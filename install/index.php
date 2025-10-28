@@ -419,7 +419,7 @@ function h(string $value): string
                 </div>
                 <div class="actions">
                     <span class="left"></span>
-                    <button type="submit"><?= h(__('installer.next')) ?></button>
+                    <button type="submit"><?= h(__('common.continue')) ?></button>
                 </div>
             <?= Forms::close() ?>
         <?php elseif ($step === 2): ?>
@@ -441,7 +441,7 @@ function h(string $value): string
                     <?= Forms::input('user', $installer['db']['user'] ?? '', 'text', ['id' => 'user', 'required' => true]) ?>
                 </div>
                 <div>
-                    <?= Forms::label('password', __('installer.db.password')) ?>
+                    <?= Forms::label('password', __('common.password')) ?>
                     <?= Forms::input('password', $installer['db']['password'] ?? '', 'password', ['id' => 'password']) ?>
                 </div>
                 <div>
@@ -449,8 +449,8 @@ function h(string $value): string
                     <?= Forms::input('charset', $installer['db']['charset'] ?? 'utf8mb4', 'text', ['id' => 'charset']) ?>
                 </div>
                 <div class="actions">
-                    <a class="button secondary left" href="?step=1"><?= h(__('installer.back')) ?></a>
-                    <button type="submit"><?= h(__('installer.next')) ?></button>
+                    <a class="button secondary left" href="?step=1"><?= h(__('common.back')) ?></a>
+                    <button type="submit"><?= h(__('common.continue')) ?></button>
                 </div>
             <?= Forms::close() ?>
         <?php elseif ($step === 3): ?>
@@ -459,13 +459,13 @@ function h(string $value): string
             </div>
             <?= Forms::open('?step=3', 'post') ?>
                 <div class="actions">
-                    <a class="button secondary left" href="?step=2"><?= h(__('installer.back')) ?></a>
+                    <a class="button secondary left" href="?step=2"><?= h(__('common.back')) ?></a>
                     <button type="submit"><?= h(__('installer.db.test.button')) ?></button>
                 </div>
             <?= Forms::close() ?>
             <?php if (($installer['db_tested'] ?? false) === true): ?>
                 <div class="actions" style="margin-top:1.5rem;">
-                    <a class="button" href="?step=4"><?= h(__('installer.next')) ?></a>
+                    <a class="button" href="?step=4"><?= h(__('common.continue')) ?></a>
                 </div>
             <?php endif; ?>
         <?php elseif ($step === 4): ?>
@@ -486,11 +486,11 @@ function h(string $value): string
                     <?= Forms::input('admin_password', '', 'password', ['id' => 'admin_password', 'required' => true]) ?>
                 </div>
                 <div>
-                    <?= Forms::label('admin_password_confirm', __('installer.admin.passwordConfirm')) ?>
+                    <?= Forms::label('admin_password_confirm', __('common.password.confirm')) ?>
                     <?= Forms::input('admin_password_confirm', '', 'password', ['id' => 'admin_password_confirm', 'required' => true]) ?>
                 </div>
                 <div class="actions">
-                    <a class="button secondary left" href="?step=3"><?= h(__('installer.back')) ?></a>
+                    <a class="button secondary left" href="?step=3"><?= h(__('common.back')) ?></a>
                     <button type="submit"><?= h(__('installer.install')) ?></button>
                 </div>
             <?= Forms::close() ?>
