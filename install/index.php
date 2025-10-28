@@ -1,8 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require dirname(__DIR__, 2) . '/load.php';
-require_once dirname(__DIR__, 2) . '/inc/Class/Core/Translation/functions.php';
+require dirname(__DIR__) . '/load.php';
 
 use Core\Database\Connect;
 use Core\Database\Init;
@@ -14,7 +13,7 @@ session_start();
 
 const INSTALLER_SESSION_KEY = 'ezcms_installer';
 
-$configPath = dirname(__DIR__, 2) . '/config.php';
+$configPath = dirname(__DIR__) . '/config.php';
 
 if (is_file($configPath)) {
     http_response_code(409);
