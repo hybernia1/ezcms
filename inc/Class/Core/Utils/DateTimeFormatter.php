@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Utils;
+namespace Core\Utils;
 
 /**
  * Utility helpers for working with dates and times across the project.
