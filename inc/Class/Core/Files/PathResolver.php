@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Core\Files;
 
-use Core\Text\Slug;
+use Utils\Slugger;
 
 /**
  * Řeší fyzické cesty a veřejné URL.
@@ -48,7 +48,7 @@ final class PathResolver
     public function uniqueFilename(string $originalName, string $dirAbs): string
     {
         [$name, $ext] = $this->splitNameAndExt($originalName);
-        $slug = Slug::from($name, 'file');
+        $slug = Slugger::from($name, 'file');
         $ext  = $this->normalizeExt($ext);
 
         do {
