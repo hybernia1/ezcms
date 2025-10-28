@@ -2,6 +2,11 @@
 declare(strict_types=1);
 
 return [
+    'common.continue' => 'Continue',
+    'common.back' => 'Back',
+    'common.password' => 'Password',
+    'common.password.confirm' => 'Confirm password',
+
     'installer.title' => 'EZCMS Installation',
     'installer.subtitle' => 'Follow the guided steps to configure your new CMS.',
     'installer.step.1' => 'Language',
@@ -10,14 +15,11 @@ return [
     'installer.step.4' => 'Administrator',
     'installer.language.label' => 'Choose your language',
     'installer.language.error' => 'Please choose one of the available languages.',
-    'installer.next' => 'Continue',
-    'installer.back' => 'Back',
     'installer.install' => 'Install now',
     'installer.db.host' => 'Database host',
     'installer.db.port' => 'Database port',
     'installer.db.database' => 'Database name',
     'installer.db.user' => 'Database user',
-    'installer.db.password' => 'Database password',
     'installer.db.charset' => 'Character set',
     'installer.db.error.host' => 'Database host is required.',
     'installer.db.error.database' => 'Database name is required.',
@@ -32,7 +34,6 @@ return [
     'installer.admin.email' => 'Administrator email',
     'installer.admin.name' => 'Administrator name',
     'installer.admin.password' => 'Administrator password',
-    'installer.admin.passwordConfirm' => 'Confirm password',
     'installer.admin.error.email' => 'Please provide a valid administrator email address.',
     'installer.admin.error.name' => 'Please enter the administrator name.',
     'installer.admin.error.passwordLength' => 'Administrator password must contain at least 8 characters.',

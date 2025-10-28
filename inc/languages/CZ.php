@@ -2,6 +2,11 @@
 declare(strict_types=1);
 
 return [
+    'common.continue' => 'Pokračovat',
+    'common.back' => 'Zpět',
+    'common.password' => 'Heslo',
+    'common.password.confirm' => 'Potvrzení hesla',
+
     'installer.title' => 'Instalace EZCMS',
     'installer.subtitle' => 'Projdi několik kroků a nastav nový redakční systém.',
     'installer.step.1' => 'Jazyk',
@@ -10,14 +15,11 @@ return [
     'installer.step.4' => 'Administrátor',
     'installer.language.label' => 'Vyber si jazyk rozhraní',
     'installer.language.error' => 'Vyber prosím jeden z nabízených jazyků.',
-    'installer.next' => 'Pokračovat',
-    'installer.back' => 'Zpět',
     'installer.install' => 'Dokončit instalaci',
     'installer.db.host' => 'Adresa databázového serveru',
     'installer.db.port' => 'Port databáze',
     'installer.db.database' => 'Název databáze',
     'installer.db.user' => 'Uživatelské jméno',
-    'installer.db.password' => 'Heslo',
     'installer.db.charset' => 'Znaková sada',
     'installer.db.error.host' => 'Zadej adresu databázového serveru.',
     'installer.db.error.database' => 'Zadej název databáze.',
@@ -32,7 +34,6 @@ return [
     'installer.admin.email' => 'E-mail administrátora',
     'installer.admin.name' => 'Jméno administrátora',
     'installer.admin.password' => 'Heslo administrátora',
-    'installer.admin.passwordConfirm' => 'Potvrzení hesla',
     'installer.admin.error.email' => 'Zadej platnou e-mailovou adresu.',
     'installer.admin.error.name' => 'Zadej jméno administrátora.',
     'installer.admin.error.passwordLength' => 'Heslo musí mít alespoň 8 znaků.',
