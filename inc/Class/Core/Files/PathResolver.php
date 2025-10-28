@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Core\Files;
 
-use Utils\DateTimeFormatter;
-use Utils\Slugger;
+use Core\Utils\DateTimeFormatter;
+use Core\Utils\Slugger;
 
 /**
  * Řeší fyzické cesty a veřejné URL.
