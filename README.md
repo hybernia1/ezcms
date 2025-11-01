@@ -96,3 +96,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ```
+
+### Skladové položky a modal s pohyby
+
+`Core\Inventory\InventoryModalRenderer` umožňuje jednoduše vykreslit tlačítko
+`[sklad]`, které otevře modal se všemi pohyby skladové položky. Historie
+zahrnuje jak naskladnění, tak vyskladnění včetně informace o důvodu (například
+inventura nebo expedice objednávky) a výsledného stavu po každém pohybu.
+
+```php
+use Core\Inventory\InventoryItem;
+use Core\Inventory\InventoryModalRenderer;
+use Core\Inventory\InventoryMovement;
+use Core\Inventory\InventoryMovementReason;
+
+$item = new InventoryItem(sku: 'SKU-123', name: 'Zimní bunda', startingStock: 12);
+$item->addMovement(new InventoryMovement(
+    occurredAt: new DateTimeImmutable('2024-02-01 09:15'),
+    type: InventoryMovement::TYPE_OUT,
+    quantity: 2,
+    reason: InventoryMovementReason::ORDER_DISPATCH,
+    reference: 'OBJ-548',
+));
+$item->addMovement(new InventoryMovement(
+    occurredAt: new DateTimeImmutable('2024-02-05 14:30'),
+    type: InventoryMovement::TYPE_OUT,
+    quantity: 1,
+    reason: InventoryMovementReason::INVENTORY_CHECK,
+));
+
+$renderer = new InventoryModalRenderer();
+echo $renderer->render($item);
+```
+
+Vykreslený modal je plně responsivní, obsahuje běžné ovládací prvky a
+zobrazí aktuální skladovou zásobu i přehled všech pohybů s důvody vyskladnění.
